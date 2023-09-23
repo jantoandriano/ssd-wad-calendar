@@ -16,7 +16,7 @@ export function EventLabels({ evt, dayEvents, day }) {
     >
       <div className="flex justify-end ">
         <div
-          className=" hover:bg-green-400 cursor-pointer"
+          className=" hover:bg-green-400 cursor-pointer mr-2"
           onClick={() => {
             setDaySelected(day.a);
             setShowEventModal(true);
