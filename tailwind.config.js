@@ -22,7 +22,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Open Sans"]
+        sans: ["Open Sans"],
+        'poppins': ['Poppins', 'sans-serif']
       },
       gridTemplateColumns: {
         "1/5": "1fr 5fr"

@@ -21,7 +21,7 @@ export default function Day({ day }) {
   const dateNumber = day.m === '2' ? getDay(day.a) : '';
 
   return (
-    <div className="border border-gray-200 flex flex-col">
+    <div className="border border-gray-200 flex flex-col font-poppins">
       <header className="flex flex-col items-center cursor-pointer hover:bg-gray-200"
       onClick={() => {
         setDaySelected(day.a);
