@@ -8,9 +8,9 @@ export function getMonth(month) {
     return new Array(7).fill(null).map(() => {
       currentMonthCount++;
       return {
-        d: convertJsDate(yearIndex, 1, currentMonthCount),
-        a: Date.parse(convertJsDate(yearIndex, 1, currentMonthCount)),
-        m: getMonthIndex(Date.parse(convertJsDate(yearIndex, 1, currentMonthCount))),
+        d: convertJsDate(yearIndex, month, currentMonthCount),
+        a: Date.parse(convertJsDate(yearIndex, month, currentMonthCount)),
+        m: getMonthIndex(Date.parse(convertJsDate(yearIndex, month, currentMonthCount))),
       };
     });
   });

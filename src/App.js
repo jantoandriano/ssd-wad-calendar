@@ -7,11 +7,11 @@ import { getMonth } from './util';
 import GlobalContext from './context/GlobalContext';
 function App() {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex, showEventModal } = useContext(GlobalContext);
+  const { showEventModal } = useContext(GlobalContext);
 
   useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex));
-  }, [monthIndex]);
+    setCurrentMonth(getMonth(1));
+  }, []);
 
   return (
     <React.Fragment>

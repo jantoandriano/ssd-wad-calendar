@@ -1,8 +1,6 @@
 import React from 'react';
 
 const GlobalContext = React.createContext({
-  monthIndex: 2,
-  setMonthIndex: (index) => {},
   daySelected: null,
   setDaySelected: (day) => {},
   showEventModal: false,
@@ -11,7 +9,6 @@ const GlobalContext = React.createContext({
   savedEvents: [],
   selectedEvent: null,
   setSelectedEvent: () => {},
-  setLabels: () => {},
   filteredEvents: [],
 });
 

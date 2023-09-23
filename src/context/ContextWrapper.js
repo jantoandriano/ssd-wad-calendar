@@ -28,7 +28,6 @@ function initEvents() {
 }
 
 export default function ContextWrapper(props) {
-  const [monthIndex, setMonthIndex] = useState(1);
   const [daySelected, setDaySelected] = useState(null);
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -51,8 +50,6 @@ export default function ContextWrapper(props) {
   return (
     <GlobalContext.Provider
       value={{
-        monthIndex,
-        setMonthIndex,
         daySelected,
         setDaySelected,
         showEventModal,
