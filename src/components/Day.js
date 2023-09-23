@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
 import { convertTimeStamp, getDay } from "../util";
+import { EventLabels } from "./EventLabels";
 
 export default function Day({ day }) {
   const [dayEvents, setDayEvents] = useState([]);
@@ -8,7 +9,6 @@ export default function Day({ day }) {
     setDaySelected,
     setShowEventModal,
     filteredEvents,
-    setSelectedEvent,
   } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -18,26 +18,24 @@ export default function Day({ day }) {
     setDayEvents(events)
   }, [filteredEvents, day]);
 
-  const height = dayEvents.length === 3 ? 'h-2/6' : dayEvents.length === 2 ? 'h-3/6' : 'h-full';
   const dateNumber = day.m === '2' ? getDay(day.a) : '';
 
   return (
     <div className="border border-gray-200 flex flex-col">
-      <header className="flex flex-col items-center cursor-pointer"
+      <header className="flex flex-col items-center cursor-pointer hover:bg-gray-200"
       onClick={() => {
         setDaySelected(day.a);
         setShowEventModal(true);
       }}
       >
         <p
-          className={`text-sm p-1 my-1 text-center`}
-
+          className='text-sm p-1 my-1 text-center'
         >
           {dateNumber}
         </p>
       </header>
       <div
-        className="flex-1"
+        className="flex-1 cursor-pointer hover:bg-gray-200"
         onClick={() => {
           setDaySelected(day.a);
           setShowEventModal(true);
@@ -45,14 +43,9 @@ export default function Day({ day }) {
       >
         {dayEvents.map((evt, idx) => {
           return (
-            <div
-              key={idx}
-              onClick={() => setSelectedEvent(evt)}
-              className={`${evt.label} ${height} p-1 text-white text-sm rounded mb-1 truncate hover:bg-gray-400`}
-            >
-              <p>{evt.title}</p>
-              <p>{evt.description}</p>
-            </div>
+            <React.Fragment key={idx}>
+              <EventLabels evt={evt} dayEvents={dayEvents} />
+            </React.Fragment>
           )
         })}
       </div>

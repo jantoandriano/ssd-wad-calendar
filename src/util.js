@@ -87,3 +87,9 @@ export function getMonthIndex(timestamp) {
   return month
 
 }
+
+export function getHours(timestamp) {
+  const timeStamp = timestamp * 1000;
+  const hours = new Date(timeStamp).toLocaleTimeString()
+  return hours 
+}
