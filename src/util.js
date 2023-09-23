@@ -1,4 +1,4 @@
-export function getMonth(month) {
+export function getMonthGrid(month) {
   const currentDate = new Date();
   const dayIndex = currentDate.getDay() - 1;
   const yearIndex = currentDate.getFullYear();
@@ -42,7 +42,9 @@ export function getRandomColor() {
   return `bg-${color[randomShade]}-500`;
 }
 
-export function getmonth() {
+export function getmonth(monthIndex) {
+  const date = new Date();
+  const monthindex = date.getMonth();
   const months = {
     1: 'January',
     2: 'February',
@@ -57,7 +59,8 @@ export function getmonth() {
     11: 'November',
     12: 'Desember',
   };
-  return months[2];
+  const month = monthIndex ? months[monthIndex] : months[monthindex]
+  return month
 }
 
 export function convertTimeStamp(timestamp) {

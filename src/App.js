@@ -1,16 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './App.css';
 import CalendarHeader from './components/calendar-header';
 import Month from './components/calendar-month';
 import EventModal from './components/calendar-event-modal';
-import { getMonth } from './util';
+import { getMonthGrid } from './util';
 import GlobalContext from './context/GlobalContext';
 function App() {
-  const [currenMonth, setCurrentMonth] = useState(getMonth());
+  const [currenMonth, setCurrentMonth] = useState(getMonthGrid(1));
   const { showEventModal } = useContext(GlobalContext);
 
   useEffect(() => {
-    setCurrentMonth(getMonth(1));
+    setCurrentMonth(getMonthGrid(1));
   }, []);
 
   return (

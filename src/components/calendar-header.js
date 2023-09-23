@@ -1,9 +1,12 @@
 import React from 'react';
-import { getmonth } from '../util';
+import {  getmonth } from '../util';
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satruday'];
+
 export default function CalendarHeader() {
-  const month = getmonth();
+
+  const month = getmonth()
+  
   return (
     <>
       <header className="px-4 py-2 flex items-center justify-center">
