@@ -7,7 +7,7 @@ export default function EventModal() {
   const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } = useContext(GlobalContext);
 
   const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : '');
-  const [description, setDescription] = useState(selectedEvent ? selectedEvent.description : '');
+  const [email, setEmail] = useState(selectedEvent ? selectedEvent.description : '');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +15,7 @@ export default function EventModal() {
 
     const calendarEvent = {
       title,
-      description,
+      description: email,
       label: color,
       day: daySelected.valueOf(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
@@ -38,26 +38,31 @@ export default function EventModal() {
           </div>
         </header>
         <div className="p-3">
-          <div className="grid items-end gap-y-7">
-            <div></div>
-            <input
+          <div className="grid items-end gap-y-7">            
+          <div className='flex items-center gap-4'>
+              <label for="title">Event Name</label>
+              <input
               type="text"
               name="title"
               placeholder="Add Event Title"
               value={title}
               required
-              className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-black"
+              className="pt-3 border-0 text-gray-600 pb-2 w-full border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-black"
               onChange={(e) => setTitle(e.target.value)}
             />
+            </div>
+            <div className='flex items-center gap-4'>
+            <label for="email">Email</label>
             <input
               type="email"
-              name="description"
+              name="email"
               placeholder="Add a email"
-              value={description}
+              value={email}
               required
-              className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-black"
-              onChange={(e) => setDescription(e.target.value)}
+              className="pt-3 border-0 text-gray-600 pb-2 w-full border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-black"
+              onChange={(e) => setEmail(e.target.value)}
             />
+            </div>
           </div>
         </div>
         <footer className="flex justify-end p-3 mt-5">
