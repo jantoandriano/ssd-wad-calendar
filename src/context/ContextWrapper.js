@@ -32,32 +32,14 @@ export default function ContextWrapper(props) {
   const [daySelected, setDaySelected] = useState(null);
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [labels, setLabels] = useState([]);
   const [savedEvents, dispatchCalEvent] = useReducer(eventReducer, [], initEvents);
 
   const filteredEvents = useMemo(() => {
-    return savedEvents.filter((evt) =>
-      labels
-        .filter((lbl) => lbl.checked)
-        .map((lbl) => lbl.label)
-        .includes(evt.label),
-    );
-  }, [savedEvents, labels]);
-
-  useEffect(() => {
-    localStorage.setItem('savedEvents', JSON.stringify(savedEvents));
+    return savedEvents;
   }, [savedEvents]);
 
   useEffect(() => {
-    setLabels((prevLabels) => {
-      return [...new Set(savedEvents.map((evt) => evt.label))].map((label) => {
-        const currentLabel = prevLabels.find((lbl) => lbl.label === label);
-        return {
-          label,
-          checked: currentLabel ? currentLabel.checked : true,
-        };
-      });
-    });
+    localStorage.setItem('savedEvents', JSON.stringify(savedEvents));
   }, [savedEvents]);
 
   useEffect(() => {

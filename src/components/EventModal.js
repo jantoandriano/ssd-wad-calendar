@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 import GlobalContext from '../context/GlobalContext';
 import { getRandomColor } from '../util';
 
@@ -27,29 +28,13 @@ export default function EventModal() {
 
     setShowEventModal(false);
   }
+
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center font-poppins">
       <form className="bg-white rounded-lg shadow-2xl w-1/4">
-        <header className="bg-black px-4 py-2 flex justify-between items-center">
-          <span className="material-icons-outlined text-gray-400"></span>
-          <div>
-            {selectedEvent && (
-              <span
-                onClick={() => {
-                  dispatchCalEvent({
-                    type: 'delete',
-                    payload: selectedEvent,
-                  });
-                  setShowEventModal(false);
-                }}
-                className="material-icons-outlined text-white cursor-pointer mr-2"
-              >
-                Delete
-              </span>
-            )}
-            <button onClick={() => setShowEventModal(false)}>
-              <span className="material-icons-outlined text-white">Close</span>
-            </button>
+        <header className="bg-black px-4 py-2 flex justify-end">
+          <div onClick={() => setShowEventModal(false)} className='cursor-pointer hover:bg-red-500'>
+              <FaTimes color="white" />
           </div>
         </header>
         <div className="p-3">
@@ -79,7 +64,7 @@ export default function EventModal() {
           <button
             type="submit"
             onClick={handleSubmit}
-            className="bg-black hover:bg-black-600 px-6 py-2 rounded text-white"
+            className="bg-black hover:bg-black-600 px-6 py-2 rounded text-white hover:bg-gray-600"
           >
             Save
           </button>

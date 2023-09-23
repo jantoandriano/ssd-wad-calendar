@@ -17,7 +17,7 @@ export default function Day({ day }) {
   return (
     <div className="border border-gray-200 flex flex-col font-poppins">
       <header
-        className="flex flex-col items-center cursor-pointer hover:bg-gray-200"
+        className="flex flex-col items-center cursor-pointer bg-gray-100 hover:bg-gray-200 h-8"
         onClick={() => {
           setDaySelected(day.a);
           setShowEventModal(true);
@@ -25,17 +25,11 @@ export default function Day({ day }) {
       >
         <p className="text-sm p-1 my-1 text-center">{dateNumber}</p>
       </header>
-      <div
-        className="flex-1 cursor-pointer hover:bg-gray-200"
-        onClick={() => {
-          setDaySelected(day.a);
-          setShowEventModal(true);
-        }}
-      >
+      <div className="flex-1 hover:bg-gray-200">
         {dayEvents.map((evt, idx) => {
           return (
             <React.Fragment key={idx}>
-              <EventLabels evt={evt} dayEvents={dayEvents} />
+              <EventLabels evt={evt} dayEvents={dayEvents} day={day} />
             </React.Fragment>
           );
         })}
