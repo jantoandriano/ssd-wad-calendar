@@ -1,4 +1,3 @@
-
 export function getMonth(month) {
   const currentDate = new Date();
   const dayIndex = currentDate.getDay() - 1;
@@ -11,11 +10,10 @@ export function getMonth(month) {
       return {
         d: convertJsDate(yearIndex, 1, currentMonthCount),
         a: Date.parse(convertJsDate(yearIndex, 1, currentMonthCount)),
-        m: getMonthIndex(Date.parse(convertJsDate(yearIndex, 1, currentMonthCount)))
-      }
+        m: getMonthIndex(Date.parse(convertJsDate(yearIndex, 1, currentMonthCount))),
+      };
     });
   });
-
 
   return days;
 }
@@ -36,8 +34,8 @@ export function getRandomColor() {
     5: 'red',
     6: 'purple',
     7: 'pink',
-    8: 'orange'
-  }
+    8: 'orange',
+  };
 
   const randomShade = randomShades[Math.floor(Math.random() * randomShades.length)];
 
@@ -58,7 +56,7 @@ export function getmonth() {
     10: 'October',
     11: 'November',
     12: 'Desember',
-  }
+  };
   return months[2];
 }
 
@@ -70,26 +68,25 @@ export function convertTimeStamp(timestamp) {
 
   const formatedDate = `${day}-${month}-${year}`;
 
-  return formatedDate
+  return formatedDate;
 }
 
 export function getDay(timeStamp) {
   const date = new Date(timeStamp);
   const day = date.getDate().toString().padStart(2, '0');
 
-  return day
+  return day;
 }
 
 export function getMonthIndex(timestamp) {
   const date = new Date(timestamp);
   const month = (date.getMonth() + 1).toString();
 
-  return month
-
+  return month;
 }
 
 export function getHours(timestamp) {
   const timeStamp = timestamp * 1000;
-  const hours = new Date(timeStamp).toLocaleTimeString()
-  return hours 
+  const hours = new Date(timeStamp).toLocaleTimeString();
+  return hours;
 }

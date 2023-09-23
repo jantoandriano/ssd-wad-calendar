@@ -1,5 +1,5 @@
-import React from "react";
-import Day from "./Day";
+import React from 'react';
+import Day from './Day';
 export default function Month({ month }) {
   console.log(month);
   return (

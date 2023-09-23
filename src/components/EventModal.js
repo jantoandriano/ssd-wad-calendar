@@ -1,55 +1,43 @@
-import React, { useContext, useState } from "react";
-import GlobalContext from "../context/GlobalContext";
-import { getRandomColor } from "../util";
+import React, { useContext, useState } from 'react';
+import GlobalContext from '../context/GlobalContext';
+import { getRandomColor } from '../util';
 
 export default function EventModal() {
-  const {
-    setShowEventModal,
-    daySelected,
-    dispatchCalEvent,
-    selectedEvent,
-  } = useContext(GlobalContext);
+  const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } = useContext(GlobalContext);
 
-  const [title, setTitle] = useState(
-    selectedEvent ? selectedEvent.title : ""
-  );
-  const [description, setDescription] = useState(
-    selectedEvent ? selectedEvent.description : ""
-  );
+  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : '');
+  const [description, setDescription] = useState(selectedEvent ? selectedEvent.description : '');
 
   function handleSubmit(e) {
     e.preventDefault();
     const color = getRandomColor();
-   
+
     const calendarEvent = {
       title,
       description,
       label: color,
       day: daySelected.valueOf(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
-      
     };
     if (selectedEvent) {
-      dispatchCalEvent({ type: "update", payload: calendarEvent });
+      dispatchCalEvent({ type: 'update', payload: calendarEvent });
     } else {
-      dispatchCalEvent({ type: "push", payload: calendarEvent });
+      dispatchCalEvent({ type: 'push', payload: calendarEvent });
     }
 
     setShowEventModal(false);
   }
   return (
-    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
+    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center font-poppins">
       <form className="bg-white rounded-lg shadow-2xl w-1/4">
         <header className="bg-black px-4 py-2 flex justify-between items-center">
-          <span className="material-icons-outlined text-gray-400">
-            
-          </span>
+          <span className="material-icons-outlined text-gray-400"></span>
           <div>
             {selectedEvent && (
               <span
                 onClick={() => {
                   dispatchCalEvent({
-                    type: "delete",
+                    type: 'delete',
                     payload: selectedEvent,
                   });
                   setShowEventModal(false);
@@ -60,9 +48,7 @@ export default function EventModal() {
               </span>
             )}
             <button onClick={() => setShowEventModal(false)}>
-              <span className="material-icons-outlined text-white">
-                Close
-              </span>
+              <span className="material-icons-outlined text-white">Close</span>
             </button>
           </div>
         </header>
