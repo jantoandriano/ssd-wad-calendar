@@ -25,16 +25,16 @@ Open [ssd-wad-calendar](https://ssd-wad-calendar-gw3ahkets-jantoandriano.vercel.
 CREATE EVENT 
 1. First open the app
 2. Choose date you wanna create event:
-    a. If date dont have any event yet
-        - click empty space in date
-        - modal will open
-        - add event title and email
-        - click button Save
-    b. If date already have one event
-        - click date number (ex: 01-n) to create more event
-        - modal will open
-        - add event title and email
-        - click button Save
+    * If date dont have any event yet
+        * click empty space in date
+        * modal will open
+        * add event title and email
+        * click button Save
+    * If date already have one event
+        * click date number (ex: 01-n) to create more event
+        * modal will open
+        * add event title and email
+        * click button Save
 
 EDIT EVENT
 1. Click icon edit on event you wanna edit
