@@ -14,3 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `Application`
+
+You can visit running application via
+Open [https://ssd-wad-calendar-gw3ahkets-jantoandriano.vercel.app](ssd-wad-calendar) to view it in your browser.

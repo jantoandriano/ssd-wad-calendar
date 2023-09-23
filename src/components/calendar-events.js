@@ -15,33 +15,33 @@ export function EventLabels({ evt, dayEvents, day }) {
       className={`${evt.label} ${height} p-1 text-white text-sm rounded mb-1 truncate`}
     >
       <div className="flex justify-end">
-        <div className='bg-gray-400 flex p-1 rounded-md'>
-        <div
-          className=" hover:bg-green-400 cursor-pointer mr-2"
-          onClick={() => {
-            setDaySelected(day.a);
-            setShowEventModal(true);
-          }}
-        >
-          <FaEdit />
-        </div>
+        <div className="bg-gray-400 flex p-1 rounded-md">
+          <div
+            className=" hover:bg-green-400 cursor-pointer mr-2"
+            onClick={() => {
+              setDaySelected(day.a);
+              setShowEventModal(true);
+            }}
+          >
+            <FaEdit />
+          </div>
 
-        <div
-          className="hover:bg-red-400 cursor-pointer"
-          onClick={() => {
-            dispatchCalEvent({
-              type: 'delete',
-              payload: evt,
-            });
-          }}
-        >
-          <FaTrash />
-        </div>
+          <div
+            className="hover:bg-red-400 cursor-pointer"
+            onClick={() => {
+              dispatchCalEvent({
+                type: 'delete',
+                payload: evt,
+              });
+            }}
+          >
+            <FaTrash />
+          </div>
         </div>
       </div>
       <div>{evt.title}</div>
       <div>{evt.description}</div>
-      <div>{hours}</div>     
+      <div>{hours}</div>
     </div>
   );
 }

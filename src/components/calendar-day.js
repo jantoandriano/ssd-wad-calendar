@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import GlobalContext from '../context/GlobalContext';
 import { convertTimeStamp, getDay } from '../util';
-import { EventLabels } from './EventLabels';
+import { EventLabels } from './calendar-events';
 
 export default function Day({ day }) {
   const [dayEvents, setDayEvents] = useState([]);
@@ -25,15 +25,33 @@ export default function Day({ day }) {
       >
         <p className="text-sm p-1 my-1 text-center">{dateNumber}</p>
       </header>
-      <div className="flex-1 hover:bg-gray-200">
-        {dayEvents.map((evt, idx) => {
-          return (
-            <React.Fragment key={idx}>
-              <EventLabels evt={evt} dayEvents={dayEvents} day={day} />
-            </React.Fragment>
-          );
-        })}
-      </div>
+      {dayEvents.length ? (
+        <div className="flex-1 hover:bg-gray-200">
+          {dayEvents.map((evt, idx) => {
+            return (
+              <React.Fragment key={idx}>
+                <EventLabels evt={evt} dayEvents={dayEvents} day={day} />
+              </React.Fragment>
+            );
+          })}
+        </div>
+      ) : (
+        <div
+          className="flex-1 hover:bg-gray-200 cursor-pointer"
+          onClick={() => {
+            setDaySelected(day.a);
+            setShowEventModal(true);
+          }}
+        >
+          {dayEvents.map((evt, idx) => {
+            return (
+              <React.Fragment key={idx}>
+                <EventLabels evt={evt} dayEvents={dayEvents} day={day} />
+              </React.Fragment>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

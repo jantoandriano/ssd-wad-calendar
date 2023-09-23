@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './App.css';
+import CalendarHeader from './components/calendar-header';
+import Month from './components/calendar-month';
+import EventModal from './components/calendar-event-modal';
 import { getMonth } from './util';
-import CalendarHeader from './components/CalendarHeader';
-import Month from './components/Month';
 import GlobalContext from './context/GlobalContext';
-import EventModal from './components/EventModal';
 function App() {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
