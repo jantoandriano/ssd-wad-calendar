@@ -12,7 +12,7 @@ export function EventLabels({ evt, dayEvents, day }) {
   return (
     <div
       onClick={() => setSelectedEvent(evt)}
-      className={`${evt.label} ${height} p-1 text-white text-sm rounded mb-1 truncate`}
+      className={`${evt.label} ${height} p-1 text-white text-sm rounded truncate`}
     >
       <div className="flex justify-end">
         <div className="bg-gray-400 flex p-1 rounded-md">
