@@ -17,4 +17,4 @@ You may also see any lint errors in the console.
 ### `Application`
 
 You can visit running application via
-Open [https://ssd-wad-calendar-gw3ahkets-jantoandriano.vercel.app](ssd-wad-calendar) to view it in your browser.
+Open [ssd-wad-calendar](https://ssd-wad-calendar-gw3ahkets-jantoandriano.vercel.app) to view it in your browser.
